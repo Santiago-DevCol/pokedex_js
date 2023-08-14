@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
     <div class="contenedorPokedex">
         <div id="topDex" class="topPoke">
-            <img src="./assets/img/pokedexTop.png" alt="">
+            <img src="../assets/img/pokedexTop.png" alt="">
         </div>
         <div id="circ" class="circulo"></div>
         <div id="cenBgCol" class="centroBgColor">
-            <button id="btnInicio" onclick="animacionRemove('topDex','bootDex')">POKEDEX</button>
+            <button id="btnInicio" onclick="animacionRemove('topDex','bootDex'); ">POKEDEX</button>
+        </div>
+        <div id="pokemonList">
+            
         </div>
         <div id="bootDex" class="bootPoke">
-            <img src="./assets/img/pokedexBoot.png" alt="">
+            <img src="../assets/img/pokedexBoot.png" alt="">
         </div>
     </div>
-    <script src="./js/index.js"></script>
+    <script src="../js/index.js"></script>
 </body>
 </html>
