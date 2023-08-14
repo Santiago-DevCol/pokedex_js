@@ -1,0 +1,96 @@
+body{
+    position: relative;
+    background: transparent;
+    margin: 0px;
+}
+
+body::before{
+    content: "";
+    position: fixed;
+    background: #040404 url(../assets/img/bg.jpg) top right no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    z-index: -1;
+}
+
+.contenedorPokedex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.bootPoke img, .topPoke img {
+  width: 515px; 
+  max-width: 100%; 
+  max-height: 100%; 
+  position: relative;
+  z-index: 3;
+}
+
+.centroBgColor {
+    display: flex;
+    background-color:rgba(155, 248, 255, 0.8);
+    width: 515px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+.circulo{
+    width: 200px;
+    height: 200px;
+    background-color:rgba(113, 248, 246, 0.6);
+    border-radius: 50%;
+    position: absolute;
+    z-index: 0;
+}
+#btnInicio{
+    background: transparent;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    animation: bounce 0.5s infinite alternate;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+#btnInicio:hover{
+    cursor: pointer;
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+@keyframes moveUp {
+    100% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+}
+@keyframes moveDown {
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes flash {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }
