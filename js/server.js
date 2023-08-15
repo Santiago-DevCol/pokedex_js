@@ -3,22 +3,26 @@ const cors = require("cors")
 const app = express();
 const port = 3000;
 
-app.use(cors())
+app.use(cors({
+    origin : '*',
+    methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}));
+
 app.use(express.json())
 
 const path = require("path");
 const data = require(path.join(__dirname, "data.json"));
-
+const protocolo = 'https://www.pokemon.com'
 // Clase PokemonCard
 class PokemonCard {
     constructor(data) {
-      this.name = data.nombre;
-      this.number = data.número;
-      this.type = data.tipo;
+      this.name = data.name;
+      this.number = data.number;
+      this.type = data.type;
       this.abilities = data.abilities;
-      this.weaknesses = data.debilidad;
-      this.thumbnail = data["Imagen en miniatura"];
-      this.detailPageURL = data.detailPageURL;
+      this.weaknesses = data.weakness;
+      this.thumbnail = data["ThumbnailImage"];
+      this.detailPageURL = protocolo + data.detailPageURL;
     }
 
     getInfo(){

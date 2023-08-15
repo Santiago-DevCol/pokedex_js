@@ -35,13 +35,15 @@ function mostrarData (lista) {
 
     lista.forEach(pokemon => {
         const type = Array.isArray(pokemon.type) ? pokemon.type.join(", ") : "Tipo no disponible";
+        const abilities = Array.isArray(pokemon.abilities) ? pokemon.abilities.join(", ") : "Habilidad no disponible";
+        const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
         const card = document.createElement("div");
         card.innerHTML = `
           <h3>${pokemon.name}</h3>
           <p>Number: ${pokemon.number}</p>
           <p>Type: ${type}</p>
-          <p>Abilities: ${pokemon.abilities.join(", ")}</p>
-          <p>Weaknesses: ${pokemon.weaknesses.join(", ")}</p>
+          <p>Abilities: ${abilities}</p>
+          <p>Weaknesses: ${weaknesses}</p>
           <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
           <p><a href="${pokemon.detailPageURL}" target="_blank">More Details</a></p>
           <hr>
