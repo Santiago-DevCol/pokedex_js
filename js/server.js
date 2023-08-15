@@ -43,7 +43,16 @@ app.get("/",(req, res) => {
 
 //end point para traer datos JSON
 app.get("/datos", (req,res) => {
-    const PokemonCards = data.map((data) => new PokemonCard(data))
+
+    const page = parseInt(req.query.page)  || 1;
+    const porPagina = parseInt(req.query.porPagina) || 10;
+
+    const startIndex = (page - 1) * porPagina;
+    const endIndex = startIndex + porPagina;
+
+    const paginaData = data.slice(startIndex,endIndex);
+
+    const PokemonCards = paginaData.map((data) => new PokemonCard(data))
     const pokemonInfo =PokemonCards.map((pokemon) => pokemon.getInfo())
     res.json(pokemonInfo)
 });

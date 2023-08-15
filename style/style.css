@@ -50,6 +50,11 @@ body::before{
     position: absolute;
     z-index: 0;
 }
+
+.cardPokemons{
+    background-color: red;
+    margin: 5px;
+}
 #btnInicio{
     background: transparent;
     font-size: 30px;
