@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@100&display=swap');
+
+*{
+    font-family: 'Fredoka One', cursive, 'poppins',sans-serif;
+}
+
 body{
     position: relative;
     background: transparent;
@@ -51,10 +57,59 @@ body::before{
     z-index: 0;
 }
 
-.cardPokemons{
-    background-color: red;
-    margin: 5px;
+#pokemonList{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 5px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: center;
 }
+
+.cardPokemons{
+    width: 150px;
+    height: 100px;
+    background: #3AB4F2;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 5px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    color:  white;
+    cursor: pointer;
+    transition: transform.2s ;
+}
+
+.cardPokemons img{
+    width: 100px;
+    padding-left: 10px;
+    padding-bottom: 11px;
+}
+
+.cardPokemons:hover{
+    box-shadow: 0 12px 16px 0 RGB(0,0,0,0.24);
+    transition: 0.5s;
+    outline: 2px solid #F7EC09;
+    transform: scale(1.2);
+    margin: 0px 10px 0px 10px;
+}
+
+.cardPokemons img:hover {
+    animation: bouncel .5s alternate infinite ease-in;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.cardPokemons p{
+    padding-top: 77px;
+    padding-right: 15px;
+}
+
 #btnInicio{
     background: transparent;
     font-size: 30px;
@@ -98,4 +153,12 @@ body::before{
     100% {
         opacity: 1;
     }
-  }
+}
+@keyframes bouncel{
+    0%{
+        transform: translateY(-10%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}

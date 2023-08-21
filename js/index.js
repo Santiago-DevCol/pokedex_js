@@ -9,10 +9,17 @@ const dexTop = document.getElementById("topDex")
 const dexBoot = document.getElementById("bootDex")
 
 const contenedor= document.getElementById("pokemonList");
-    
+const btnPagRetro = document.getElementById("btnPagRetro");
+const btnPagAdd = document.getElementById("btnPagAdd");
+
+function showBtn() {
+    btnPagRetro.style.display = "block";
+    btnPagAdd.style.display = "block";
+}
 
 function animacionRemove(div1,div2) {
 
+    showBtn();
 
     document.getElementById(div1).style.animation = "moveUp 0.5s ease-in-out forwards";
     document.getElementById(div2).style.animation = "moveDown 0.5s ease-in-out forwards";
@@ -22,7 +29,6 @@ function animacionRemove(div1,div2) {
         centerDiv.remove();
         centrodivPrincipal.remove();
         contenedor.style.display = "flex";
-    
     //setTimeout(nextPage, 1000);
 }
 
@@ -60,13 +66,13 @@ function mostrarData () {
                     card.classList.add('cardPokemons');
                     card.innerHTML = `
                     <!--<h3>${pokemon.name}</h3>-->
-                        <p>Number: ${pokemon.number}</p>
-                        <!--<p>Type: ${type}</p>-->
-                        <!--<p>Abilities: ${abilities}</p>-->
-                        <!--<p>Weaknesses: ${weaknesses}</p>-->
-                        <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
+                    <!--<p>Type: ${type}</p>-->
+                    <!--<p>Abilities: ${abilities}</p>-->
+                    <!--<p>Weaknesses: ${weaknesses}</p>-->
+                    <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
+                    <p>${pokemon.number}</p>
                         <!--<p><a href="${pokemon.detailPageURL}" target="_blank">More Details</a></p>-->
-                        <hr>
+                        
                     `;
                     contenedor.appendChild(card);
                 
