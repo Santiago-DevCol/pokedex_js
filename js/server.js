@@ -47,10 +47,16 @@ app.get("/datos", (req,res) => {
     const page = parseInt(req.query.page)  || 1;
     const porPagina = parseInt(req.query.porPagina) || 10;
 
+    let filterData = data;
+    if (req.query.search) {
+        const searchValue = req.query.search.toLowerCase();
+        filterData = data.filter(pokemon => pokemon.name.toLowerCase().includes(searchValue));
+    }
+
     const startIndex = (page - 1) * porPagina;
     const endIndex = startIndex + porPagina;
 
-    const paginaData = data.slice(startIndex,endIndex);
+    const paginaData = filterData.slice(startIndex,endIndex);
 
     const PokemonCards = paginaData.map((data) => new PokemonCard(data))
     const pokemonInfo =PokemonCards.map((pokemon) => pokemon.getInfo())

@@ -12,9 +12,12 @@ const contenedor= document.getElementById("pokemonList");
 const btnPagRetro = document.getElementById("btnPagRetro");
 const btnPagAdd = document.getElementById("btnPagAdd");
 
+const contentSearch = document.getElementById("searchBar");
+
 function showBtn() {
     btnPagRetro.style.display = "block";
     btnPagAdd.style.display = "block";
+    contentSearch.style.display = "block";
 }
 
 function animacionRemove(div1,div2) {
@@ -86,16 +89,44 @@ function mostrarData () {
         .catch(error => {
             console.error("error fetch data ", error);
         })   
-
-
-
-
-
-    
-
-    
-    
 }
+
+const doSearch = () => {
+    const searchValue = document.getElementById("search_input").value;
+
+    if (searchValue.trim() != ""){
+        fetch(`http://localhost:3000/datos?search=${searchValue}`)
+            .then(response => response.json())
+            .then(data => {
+                contenedor.innerHTML = "";
+                console.log(data);
+                data.forEach(pokemon => {
+
+                    const type = Array.isArray(pokemon.type) ? pokemon.type.join(", ") : "Tipo no disponible";
+                    const abilities = Array.isArray(pokemon.abilities) ? pokemon.abilities.join(", ") : "Habilidad no disponible";
+                    const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
+                    const card = document.createElement("div");
+                    card.classList.add('cardPokemons');
+                    card.innerHTML = `
+                    <!--<h3>${pokemon.name}</h3>-->
+                    <!--<p>Type: ${type}</p>-->
+                    <!--<p>Abilities: ${abilities}</p>-->
+                    <!--<p>Weaknesses: ${weaknesses}</p>-->
+                    <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
+                    <p>${pokemon.number}</p>
+                        <!--<p><a href="${pokemon.detailPageURL}" target="_blank">More Details</a></p>-->
+                        
+                    `;
+                    contenedor.appendChild(card);
+
+                });
+            })
+            .catch(error =>{
+                console.error("data busqueda error: ", error);
+            })
+    }
+   
+};
 
 fetch("http://localhost:3000/datos")
         .then(response => response.json())
