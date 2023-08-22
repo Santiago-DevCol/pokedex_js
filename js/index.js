@@ -51,7 +51,7 @@ function cambiarPagina(direc) {
 }
 
 function mostrarData () {
-    fetch(`http://localhost:3000/datos?page=${currenPage}&porPagina=${porPagina}`)
+    fetch(`http://localhost:3000/pokemones/datos?page=${currenPage}&porPagina=${porPagina}`)
         .then(response => response.json())
         .then(data => {
             
@@ -104,7 +104,7 @@ const doSearch = () => {
     const searchValue = document.getElementById("search_input").value;
 
     if (searchValue.trim() != ""){
-        fetch(`http://localhost:3000/datos?search=${searchValue}`)
+        fetch(`http://localhost:3000/pokemones/datos?search=${searchValue}`)
             .then(response => response.json())
             .then(data => {
                 contenedor.innerHTML = "";
@@ -176,7 +176,7 @@ const cerrarModal = () => {
 
 
 
-fetch("http://localhost:3000/datos")
+fetch("http://localhost:3000/pokemones/datos")
         .then(response => response.json())
         .then(data => {
             mostrarData(data);

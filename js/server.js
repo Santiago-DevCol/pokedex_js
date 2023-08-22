@@ -42,7 +42,7 @@ app.get("/",(req, res) => {
 });
 
 //end point para traer datos JSON
-app.get("/datos", (req,res) => {
+app.get("/pokemones/datos", (req,res) => {
 
     const page = parseInt(req.query.page)  || 1;
     const porPagina = parseInt(req.query.porPagina) || 10;
