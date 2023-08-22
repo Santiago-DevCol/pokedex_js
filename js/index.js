@@ -156,13 +156,13 @@ const mostrarDetalles = (pokemon) => {
     //const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
 
     modalContent.innerHTML = `
-    <button onclick="cerrarModal()">❌</button>
+    <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
+    <p>${pokemon.number}</p>
     <h3>${pokemon.name}</h3>
     <p>Type: ${pokemon.type}</p>
     <p>Abilities: ${pokemon.abilities}</p>
     <p>Weaknesses: ${pokemon.weaknesses}</p>
-    <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
-    <p>${pokemon.number}</p>
+    <button onclick="cerrarModal()">❌</button>
     `;
 
     const modal = document.getElementById("modal");
