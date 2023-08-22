@@ -67,6 +67,7 @@ function mostrarData () {
                     const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
                     const card = document.createElement("div");
                     card.classList.add('cardPokemons');
+                    card.dataset.number = pokemon.number;
                     card.innerHTML = `
                     <!--<h3>${pokemon.name}</h3>-->
                     <!--<p>Type: ${type}</p>-->
@@ -78,7 +79,15 @@ function mostrarData () {
                         
                     `;
                     contenedor.appendChild(card);
-                
+                    
+                    document.getElementById("pokemonList").addEventListener("click", event => {
+                        const clickedPokemon = event.target.closest(".cardPokemons");
+                        if (clickedPokemon){
+                            const pokemonNumber = clickedPokemon.dataset.number;
+                            const selectedPokemon = data.find(pokemon => pokemon.number == pokemonNumber);
+                            mostrarDetalles(selectedPokemon)
+                        }
+                    })
                 });
                 }else {
                     console.error("La respuesta de la API no es un array:", lista);
@@ -107,6 +116,7 @@ const doSearch = () => {
                     const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
                     const card = document.createElement("div");
                     card.classList.add('cardPokemons');
+                    card.dataset.number = pokemon.number;
                     card.innerHTML = `
                     <!--<h3>${pokemon.name}</h3>-->
                     <!--<p>Type: ${type}</p>-->
@@ -119,6 +129,16 @@ const doSearch = () => {
                     `;
                     contenedor.appendChild(card);
 
+                    document.getElementById("pokemonList").addEventListener("click", event => {
+                        console.log('clickSr');
+                        const clickedPokemon = event.target.closest(".cardPokemons");
+                        if (clickedPokemon){
+                            const pokemonNumber = clickedPokemon.dataset.number;
+                            const selectedPokemon = data.find(pokemon => pokemon.number == pokemonNumber);
+                            mostrarDetalles(selectedPokemon)
+                        }
+                    })
+
                 });
             })
             .catch(error =>{
@@ -127,6 +147,34 @@ const doSearch = () => {
     }
    
 };
+
+const mostrarDetalles = (pokemon) => {
+    const modalContent = document.getElementById("modalContent");
+
+    //const type = Array.isArray(pokemon.type) ? pokemon.type.join(", ") : "Tipo no disponible";
+    //const abilities = Array.isArray(pokemon.abilities) ? pokemon.abilities.join(", ") : "Habilidad no disponible";
+    //const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
+
+    modalContent.innerHTML = `
+    <button onclick="cerrarModal()">❌</button>
+    <h3>${pokemon.name}</h3>
+    <p>Type: ${pokemon.type}</p>
+    <p>Abilities: ${pokemon.abilities}</p>
+    <p>Weaknesses: ${pokemon.weaknesses}</p>
+    <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
+    <p>${pokemon.number}</p>
+    `;
+
+    const modal = document.getElementById("modal");
+    modal.style.display = "block";
+}
+
+const cerrarModal = () => {
+    const modal = document.getElementById("modal");
+    modal.style.display = "none";
+}
+
+
 
 fetch("http://localhost:3000/datos")
         .then(response => response.json())
