@@ -70,7 +70,12 @@ body::before{
     padding-right: 50px;
     justify-content: center;
 }
-
+#searchBar{
+    margin: 15px;
+}
+#searchBar button:hover{
+    cursor: pointer;
+}
 .cardPokemons{
     width: 150px;
     height: 100px;
@@ -98,7 +103,7 @@ body::before{
     transition: 0.5s;
     outline: 2px solid #F7EC09;
     transform: scale(1.2);
-    margin: 0px 10px 0px 10px;
+    margin: 15px 10px 15px 10px;
 }
 
 .cardPokemons img:hover {
@@ -170,6 +175,7 @@ body::before{
   .modal-content img {
     width: 150px;
     height: auto;
+    animation: bouncel .5s alternate infinite ease-in
   }
   
   
@@ -181,8 +187,29 @@ body::before{
 .close-Modal button{
     display: flex;
     margin-bottom: 451%;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+}
+.close-Modal:hover {
+    transition: 0.5s;
+    transform: scale(1.2);
+    
 }
 
+.paginator{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 5px;
+    padding: 2px;
+}
+.paginator button{
+    margin: 0px 5px 0px 5px;
+}
+.paginator button:hover{
+    cursor: pointer;
+}
 #btnInicio{
     background: transparent;
     font-size: 30px;
@@ -233,5 +260,46 @@ body::before{
     }
     100%{
         transform: translateY(0%);
+    }
+}
+
+@media (min-width: 400px) and (max-width: 1024px){
+    a{
+        text-decoration: none;
+    }
+    body{
+        position: relative;
+        background: transparent;
+        margin: 0px;
+    }
+    
+    body::before{
+        content: "";
+        position: fixed;
+        background: #040404 url(../assets/img/bg.jpg) top right no-repeat;
+        background-size: cover;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        z-index: -1;
+    }
+    .contenedorPokedex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    #pokemonList{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        padding: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        justify-content: center;
     }
 }
