@@ -63,7 +63,7 @@ function mostrarData () {
             dataj = data
 
             contenedor.innerHTML = ""
-            console.log(dataj);
+            //console.log(dataj);
 
             if (Array.isArray(data)){
 
