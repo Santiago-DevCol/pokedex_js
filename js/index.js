@@ -141,13 +141,31 @@ const mostrarDetalles = (pokemon) => {
     const modalContent = document.getElementById("modalContent");
 
     modalContent.innerHTML = `
-    <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
-    <p>${pokemon.number}</p>
-    <h3>${pokemon.name}</h3>
-    <p>Type: ${pokemon.type}</p>
-    <p>Abilities: ${pokemon.abilities}</p>
-    <p>Weaknesses: ${pokemon.weaknesses}</p>
-    <button onclick="cerrarModal()">❌</button>
+    <div class="left-modal">
+        <h6>Pokedex Mundial</h6>
+        <img src="${pokemon.thumbnail}" alt="${pokemon.name}">
+    </div>
+    <div class="right-modal"> 
+        <div class="rModal-idPokemon">
+            <p>${pokemon.number}</p>
+            <h3>${pokemon.name}</h3>
+        </div>
+        <div>
+            <p>Habilidades: ${pokemon.abilities}</p>
+        </div>
+        <div>
+            <p>Tipo: ${pokemon.type}</p>
+        </div>
+        <div>
+            <p>Debilidades: ${pokemon.weaknesses}</p>
+        </div>
+        <div>
+            <p>Más detalles: ${pokemon.weaknesses}</p>
+        </div>
+    </div>
+    <div>
+        <button onclick="cerrarModal()">❌</button>
+    </div>
     `;
 
     const modal = document.getElementById("modal");

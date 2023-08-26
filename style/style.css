@@ -3,7 +3,9 @@
 *{
     font-family: 'Fredoka One', cursive, 'poppins',sans-serif;
 }
-
+a{
+    text-decoration: none;
+}
 body{
     position: relative;
     background: transparent;
@@ -124,21 +126,50 @@ body::before{
   
  
   .modal-content {
-    background-color: #fff;
+    background-color: #3AB4F2;
     margin: 10% auto; 
     padding: 20px;
     border-radius: 5px;
-    width: 70%;
+    width: fit-content;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
   }
-  
- 
+.left-modal {
+    color: aliceblue;
+    font-size: 20px !important ;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.left-modal h6 {
+    margin: 1px;
+    text-align: center;
+}
+
+.right-modal{
+    display: flex;
+    flex-direction: column;
+}
+
+.right-modal div{
+    border-bottom: 2px solid #ffffff;
+    border-bottom-left-radius: 10px;
+}
+.rModal-idPokemon{
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    line-height: 10px ;
+}
+.rModal-idPokemon h3{
+    padding-left: 45px;
+    margin: 1px;
+    line-height: 25px
+}
   .modal-content img {
     width: 150px;
     height: auto;
-    margin-right: 20px;
   }
   
   
