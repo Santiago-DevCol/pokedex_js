@@ -178,6 +178,11 @@ body::before{
     font-size: 18px;
   }
 
+.close-Modal button{
+    display: flex;
+    margin-bottom: 451%;
+}
+
 #btnInicio{
     background: transparent;
     font-size: 30px;

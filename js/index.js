@@ -163,7 +163,7 @@ const mostrarDetalles = (pokemon) => {
             <p>Más detalles: ${pokemon.weaknesses}</p>
         </div>
     </div>
-    <div>
+    <div class="close-Modal">
         <button onclick="cerrarModal()">❌</button>
     </div>
     `;
