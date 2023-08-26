@@ -35,6 +35,8 @@ function animacionRemove(div1,div2) {
     let centrodivPrincipal = document.getElementById("cenBgCol");
         centerDiv.remove();
         centrodivPrincipal.remove();
+        dexTop.remove();
+        dexBoot.remove();
         contenedor.style.display = "flex";
     //setTimeout(nextPage, 1000);
 }
@@ -59,8 +61,9 @@ function mostrarData () {
         .then(response => response.json())
         .then(data => {
             dataj = data
+
             contenedor.innerHTML = ""
-            //console.log(data);
+            console.log(dataj);
 
             if (Array.isArray(data)){
 
@@ -139,7 +142,9 @@ const doSearch = () => {
 
 const mostrarDetalles = (pokemon) => {
     const modalContent = document.getElementById("modalContent");
-
+    const type = Array.isArray(pokemon.type) ? pokemon.type.join(" | ") : "Tipo no disponible";
+    const abilities = Array.isArray(pokemon.abilities) ? pokemon.abilities.join(", ") : "Habilidad no disponible";
+    const weaknesses = Array.isArray(pokemon.weaknesses) ? pokemon.weaknesses.join(", ") : "Debilidades no disponibles";
     modalContent.innerHTML = `
     <div class="left-modal">
         <h6>Pokedex Mundial</h6>
@@ -151,16 +156,16 @@ const mostrarDetalles = (pokemon) => {
             <h3>${pokemon.name}</h3>
         </div>
         <div>
-            <p>Habilidades: ${pokemon.abilities}</p>
+            <p>Habilidades: ${abilities}</p>
         </div>
         <div>
-            <p>Tipo: ${pokemon.type}</p>
+            <p>Tipo: ${type}</p>
         </div>
         <div>
-            <p>Debilidades: ${pokemon.weaknesses}</p>
+            <p>Debilidades: ${weaknesses}</p>
         </div>
         <div>
-            <p>Más detalles: ${pokemon.weaknesses}</p>
+            <p>Altura: ${pokemon.height} cm</p>
         </div>
     </div>
     <div class="close-Modal">

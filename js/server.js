@@ -16,13 +16,14 @@ const protocolo = 'https://www.pokemon.com'
 // Clase PokemonCard
 class PokemonCard {
     constructor(data) {
-      this.name = data.name;
-      this.number = data.number;
-      this.type = data.type;
-      this.abilities = data.abilities;
-      this.weaknesses = data.weakness;
-      this.thumbnail = data["ThumbnailImage"];
-      this.detailPageURL = protocolo + data.detailPageURL;
+        this.name = data.name;
+        this.number = data.number;
+        this.type = data.type;
+        this.abilities = data.abilities;
+        this.weaknesses = data.weakness;
+        this.height = data.height;
+        this.thumbnail = data["ThumbnailImage"];
+        this.detailPageURL = protocolo + data.detailPageURL;
     }
 
     getInfo(){
@@ -34,6 +35,7 @@ class PokemonCard {
             weaknesses: this.weaknesses,
             thumbnail: this.thumbnail,
             detailPageURL: this.detailPageURL,
+            height: this.height,
           };
     }
 }
