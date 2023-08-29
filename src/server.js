@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require("cors")
 const app = express();
-const port = process.env.PORT ?? 3000;
+const port = process.env.PORT || 3000;
 
 app.use(cors({
     origin : '*',
@@ -11,7 +11,7 @@ app.use(cors({
 app.use(express.json())
 
 const path = require("path");
-const data = require(path.join(__dirname, "data.json"));
+const data = require(path.join(__dirname, "../js/data.json"));
 const protocolo = 'https://www.pokemon.com'
 // Clase PokemonCard
 class PokemonCard {

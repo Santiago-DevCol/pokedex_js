@@ -1,6 +1,7 @@
 
 let dataj = null
-fetch("http://localhost:3000/pokemones/datos")
+const host ='https://pokeapiclonmsgr.fly.dev'
+fetch(`${host}/pokemones/datos`)
         .then(response => response.json())
         .then(data => {
             mostrarData(data);
@@ -57,7 +58,7 @@ function cambiarPagina(direc) {
 }
 
 function mostrarData () {
-    fetch(`http://localhost:3000/pokemones/datos?page=${currenPage}&porPagina=${porPagina}`)
+    fetch(`${host}/pokemones/datos?page=${currenPage}&porPagina=${porPagina}`)
         .then(response => response.json())
         .then(data => {
             dataj = data
@@ -108,7 +109,7 @@ const doSearch = () => {
     const searchValue = document.getElementById("search_input").value;
 
     if (searchValue.trim() != ""){
-        fetch(`http://localhost:3000/pokemones/datos?search=${searchValue}`)
+        fetch(`${host}/pokemones/datos?search=${searchValue}`)
             .then(response => response.json())
             .then(data => {
                 dataj = data
